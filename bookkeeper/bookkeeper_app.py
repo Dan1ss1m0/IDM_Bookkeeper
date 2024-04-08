@@ -124,7 +124,7 @@ class Bookkeeper:
             raise ValueError('Сумма должна быть целым числом.') from err
         if amount_int <= 0:
             raise ValueError('Сумма покупки должна быть положительной')
-        cat = self.category_rep.get_all()
+        cat = self.category_rep.get_all_like(like= None, where={'name': cat_name})
         if len(cat) == 0:
             raise ValueError(f'Категории "{cat_name}" не существует')
         cat = cat[0]
